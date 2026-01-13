@@ -82,11 +82,20 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <skip>false</skip>
-                    <finalName>hawkbit-ui</finalName>
-                    <mainClass>org.eclipse.hawkbit.ui.HawkbitUiApp</mainClass>
-                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <skip>false</skip>
+                            <finalName>hawkbit-ui</finalName>
+                            <outputDirectory>${baseDir}</outputDirectory>
+                            <mainClass>org.eclipse.hawkbit.ui.HawkbitUiApp</mainClass>
+                            <layout>JAR</layout>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
